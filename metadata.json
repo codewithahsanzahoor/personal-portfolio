@@ -1,0 +1,7 @@
+{
+  "name": "Nexus Dev - Futuristic Portfolio",
+  "description": "A high-end, futuristic developer portfolio with holographic UI, system-core aesthetics, and integrated Gemini AI for technical queries.",
+  "requestFramePermissions": [
+    "camera"
+  ]
+}
