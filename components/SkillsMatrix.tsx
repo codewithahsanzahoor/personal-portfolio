@@ -109,7 +109,7 @@ const SkillsMatrix: React.FC = () => {
               </span>
               SKILLS_MATRIX
             </h2>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2 justify-center md:justify-start">
               {["ALL_MODULES", "FRONTEND", "BACKEND"].map((btn) => (
                 <button
                   key={btn}
