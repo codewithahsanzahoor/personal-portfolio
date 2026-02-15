@@ -1,20 +1,64 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Ahsan Core // Futuristic Portfolio
 
-# Run and deploy your AI Studio app
+A high-performance, futuristic portfolio website designed to showcase Full Stack Development skills with a sci-fi aesthetic. Built for speed, responsiveness, and visual impact.
 
-This contains everything you need to run your app locally.
+![Project Preview](/src/assets/preview.png)
 
-View your app in AI Studio: https://ai.studio/apps/drive/1U7JQGjg04aarBkx73pyD9s7VkslQegzA
+## 🚀 Tech Stack
 
-## Run Locally
+- **Core:** React, TypeScript, Vite
+- **Styling:** Tailwind CSS, Custom Animations
+- **Icons:** Material Icons
+- **Email:** EmailJS (Real-time contact form)
 
-**Prerequisites:**  Node.js
+## 🛠️ Getting Started
 
+### Prerequisites
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+- Node.js (v16+)
+- npm or yarn
+
+### Installation
+
+1. **Clone the repository:**
+
+   ```bash
+   git clone https://github.com/codewithahsanzahoor/nexus-dev---futuristic-portfolio.git
+   cd nexus-dev---futuristic-portfolio
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   npm install
+   ```
+
+3. **Configure Environment Variables:** Create a `.env` file in the root directory and add your EmailJS credentials:
+
+   ```env
+   VITE_EMAILJS_SERVICE_ID=your_service_id
+   VITE_EMAILJS_TEMPLATE_ID=your_template_id
+   VITE_EMAILJS_PUBLIC_KEY=your_public_key
+   ```
+
+4. **Run the development server:**
+   ```bash
+   npm run dev
+   ```
+
+## 📂 Project Structure
+
+- `src/components`: UI components (Hero, Navbar, SkillsMatrix, etc.)
+- `src/constants.tsx`: Configuration for projects, skills, and text content.
+- `src/index.css`: Global styles and Tailwind imports.
+
+## 👤 Author
+
+**Ahsan Zahoor**
+
+- Full Stack Web & Mobile Developer
+- DevOps Engineer
+
+---
+
+_System Status: Online // Version 4.0_
