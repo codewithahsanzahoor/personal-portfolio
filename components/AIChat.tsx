@@ -1,15 +1,26 @@
-
-import React, { useState, useRef, useEffect } from 'react';
-import { generateAIResponse } from '../services/geminiService';
-import { ChatMessage } from '../types';
+import React, { useState, useRef, useEffect } from "react";
+import { ChatMessage } from "../types";
+import emailjs from "@emailjs/browser";
 
 const AIChat: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState<ChatMessage[]>([
-    { role: 'assistant', content: 'SYSTEM READY. I am the Nexus Operator. How can I assist your technical inquiry today?' }
+    {
+      role: "assistant",
+      content:
+        "SYSTEM ONLINE. I am Ahsan's Assistant. Please identify yourself (Enter Name).",
+    },
   ]);
-  const [input, setInput] = useState('');
+  const [input, setInput] = useState("");
   const [isTyping, setIsTyping] = useState(false);
+  const [step, setStep] = useState<"NAME" | "EMAIL" | "MESSAGE" | "COMPLETE">(
+    "NAME",
+  );
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -21,15 +32,80 @@ const AIChat: React.FC = () => {
   const handleSend = async () => {
     if (!input.trim() || isTyping) return;
 
-    const userMsg = { role: 'user', content: input } as ChatMessage;
-    setMessages(prev => [...prev, userMsg]);
-    setInput('');
+    const userMsg = { role: "user", content: input } as ChatMessage;
+    setMessages((prev) => [...prev, userMsg]);
+    setInput("");
     setIsTyping(true);
 
-    const response = await generateAIResponse(input, messages.map(m => ({ role: m.role, content: m.content })));
-    
-    setMessages(prev => [...prev, { role: 'assistant', content: response || 'NO RESPONSE' }]);
-    setIsTyping(false);
+    // Prepare data for sending (state might not be updated yet)
+    const currentData = { ...formData, message: input };
+
+    if (step === "MESSAGE") {
+      setFormData((prev) => ({ ...prev, message: input }));
+
+      try {
+        await emailjs.send(
+          import.meta.env.VITE_EMAILJS_SERVICE_ID!,
+          import.meta.env.VITE_EMAILJS_TEMPLATE_ID!,
+          {
+            name: currentData.name,
+            email: currentData.email,
+            message: currentData.message,
+          },
+          import.meta.env.VITE_EMAILJS_PUBLIC_KEY!,
+        );
+
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: "Transmission Sent. Standby for response from Ahsan.",
+          },
+        ]);
+        setStep("COMPLETE");
+      } catch (error) {
+        console.error("EmailJS Error:", error);
+        setMessages((prev) => [
+          ...prev,
+          {
+            role: "assistant",
+            content: "Transmission Failed. Please try again later.",
+          },
+        ]);
+      } finally {
+        setIsTyping(false);
+      }
+    } else {
+      // Simulate processing delay for other steps
+      setTimeout(() => {
+        let botResponse = "";
+        let nextStep = step;
+
+        switch (step) {
+          case "NAME":
+            setFormData((prev) => ({ ...prev, name: input }));
+            botResponse = `Access Granted, ${input}. Please provide contact frequency (Enter Email).`;
+            nextStep = "EMAIL";
+            break;
+          case "EMAIL":
+            setFormData((prev) => ({ ...prev, email: input }));
+            botResponse = "Channel Open. State your inquiry (Enter Message).";
+            nextStep = "MESSAGE";
+            break;
+          case "COMPLETE":
+            botResponse =
+              "System is already processing your previous request. Please wait for contact.";
+            break;
+        }
+
+        setMessages((prev) => [
+          ...prev,
+          { role: "assistant", content: botResponse },
+        ]);
+        setStep(nextStep);
+        setIsTyping(false);
+      }, 1000);
+    }
   };
 
   return (
@@ -37,66 +113,89 @@ const AIChat: React.FC = () => {
       {isOpen ? (
         <div className="w-[350px] md:w-[400px] h-[500px] glass-panel rounded-xl flex flex-col overflow-hidden border-primary/40 shadow-2xl">
           <div className="bg-primary/10 p-4 border-b border-primary/20 flex justify-between items-center">
-             <div className="flex items-center gap-2">
-                <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
-                <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-primary">System Intelligence</span>
-             </div>
-             <button onClick={() => setIsOpen(false)} className="text-primary hover:text-white transition-colors">
-                <span className="material-icons text-sm">close</span>
-             </button>
+            <div className="flex items-center gap-2">
+              <div className="w-2 h-2 bg-primary rounded-full animate-pulse"></div>
+              <span className="text-[10px] font-bold tracking-[0.2em] uppercase text-primary">
+                Ahsan's Assistant
+              </span>
+            </div>
+            <button
+              onClick={() => setIsOpen(false)}
+              className="text-primary hover:text-white transition-colors"
+            >
+              <span className="material-icons text-sm">close</span>
+            </button>
           </div>
-          
-          <div ref={scrollRef} className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar">
-             {messages.map((msg, idx) => (
-               <div key={idx} className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}>
-                 <div className={`max-w-[80%] p-3 rounded-lg text-sm font-light leading-relaxed ${
-                   msg.role === 'user' 
-                     ? 'bg-primary/20 border border-primary/40 text-slate-100 rounded-br-none' 
-                     : 'bg-background-dark border border-primary/10 text-primary/90 rounded-bl-none'
-                 }`}>
-                   {msg.content}
-                 </div>
-               </div>
-             ))}
-             {isTyping && (
-               <div className="flex justify-start">
-                  <div className="bg-background-dark border border-primary/10 p-3 rounded-lg rounded-bl-none">
-                    <div className="flex gap-1">
-                       <div className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce"></div>
-                       <div className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce [animation-delay:0.2s]"></div>
-                       <div className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce [animation-delay:0.4s]"></div>
-                    </div>
+
+          <div
+            ref={scrollRef}
+            className="flex-1 overflow-y-auto p-4 space-y-4 no-scrollbar"
+          >
+            {messages.map((msg, idx) => (
+              <div
+                key={idx}
+                className={`flex ${msg.role === "user" ? "justify-end" : "justify-start"}`}
+              >
+                <div
+                  className={`max-w-[80%] p-3 rounded-lg text-sm font-light leading-relaxed ${
+                    msg.role === "user"
+                      ? "bg-primary/20 border border-primary/40 text-slate-100 rounded-br-none"
+                      : "bg-background-dark border border-primary/10 text-primary/90 rounded-bl-none"
+                  }`}
+                >
+                  {msg.content}
+                </div>
+              </div>
+            ))}
+            {isTyping && (
+              <div className="flex justify-start">
+                <div className="bg-background-dark border border-primary/10 p-3 rounded-lg rounded-bl-none">
+                  <div className="flex gap-1">
+                    <div className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce"></div>
+                    <div className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce [animation-delay:0.2s]"></div>
+                    <div className="w-1.5 h-1.5 bg-primary/40 rounded-full animate-bounce [animation-delay:0.4s]"></div>
                   </div>
-               </div>
-             )}
+                </div>
+              </div>
+            )}
           </div>
 
           <div className="p-4 border-t border-primary/20 bg-background-dark/50">
-             <div className="relative">
-                <input 
-                  type="text"
-                  value={input}
-                  onChange={(e) => setInput(e.target.value)}
-                  onKeyDown={(e) => e.key === 'Enter' && handleSend()}
-                  placeholder="QUERY SYSTEM..."
-                  className="w-full bg-primary/5 border border-primary/20 focus:border-primary outline-none py-2 pl-4 pr-12 text-sm text-slate-100 font-mono"
-                />
-                <button 
-                  onClick={handleSend}
-                  className="absolute right-2 top-1/2 -translate-y-1/2 text-primary hover:text-white"
-                >
-                  <span className="material-icons">send</span>
-                </button>
-             </div>
-             <p className="text-[8px] text-center mt-2 text-primary/40 font-mono tracking-widest">UPLINK_SECURE: AES-256</p>
+            <div className="relative">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyDown={(e) => e.key === "Enter" && handleSend()}
+                placeholder={
+                  step === "COMPLETE"
+                    ? "TRANSMISSION COMPLETE"
+                    : "INPUT DATA..."
+                }
+                disabled={step === "COMPLETE"}
+                className="w-full bg-primary/5 border border-primary/20 focus:border-primary outline-none py-2 pl-4 pr-12 text-sm text-slate-100 font-mono disabled:opacity-50"
+              />
+              <button
+                onClick={handleSend}
+                disabled={step === "COMPLETE"}
+                className="absolute right-2 top-1/2 -translate-y-1/2 text-primary hover:text-white disabled:opacity-50"
+              >
+                <span className="material-icons">send</span>
+              </button>
+            </div>
+            <p className="text-[8px] text-center mt-2 text-primary/40 font-mono tracking-widest">
+              UPLINK_SECURE: AES-256
+            </p>
           </div>
         </div>
       ) : (
-        <button 
+        <button
           onClick={() => setIsOpen(true)}
           className="w-16 h-16 bg-background-dark border-2 border-primary/40 rounded-full flex items-center justify-center text-primary shadow-[0_0_20px_rgba(37,209,244,0.4)] hover:scale-110 transition-all group"
         >
-          <span className="material-icons text-3xl group-hover:animate-pulse">smart_toy</span>
+          <span className="material-icons text-3xl group-hover:animate-pulse">
+            smart_toy
+          </span>
         </button>
       )}
     </div>

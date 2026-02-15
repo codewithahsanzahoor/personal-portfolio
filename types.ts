@@ -1,4 +1,3 @@
-
 export interface Project {
   id: string;
   title: string;
@@ -9,6 +8,8 @@ export interface Project {
   tech: string[];
   status: string;
   coordinates: string;
+  demoUrl?: string;
+  repoUrl?: string;
 }
 
 export interface Skill {
@@ -16,9 +17,10 @@ export interface Skill {
   proficiency: number;
   icon: string;
   module: string;
+  category: "FRONTEND" | "BACKEND" | "TOOLS";
 }
 
 export interface ChatMessage {
-  role: 'user' | 'assistant';
+  role: "user" | "assistant";
   content: string;
 }
