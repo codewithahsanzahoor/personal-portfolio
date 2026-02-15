@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <defs>
+    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#25d1f4;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#8b5cf6;stop-opacity:1" />
+    </linearGradient>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="15" result="blur" />
+      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    </filter>
+  </defs>
+  
+  <!-- Background Circle (Optional, kept transparent for modern look, or dark for visibility) -->
+  <circle cx="256" cy="256" r="240" fill="#101f22" stroke="url(#grad1)" stroke-width="10" opacity="0.9" />
+
+  <!-- Styled A -->
+  <g filter="url(#glow)">
+    <!-- Inverted V Shape -->
+    <path d="M256 80 L100 420 L180 420 L256 240 L332 420 L412 420 Z" fill="url(#grad1)" />
+    <!-- Crossbar -->
+    <rect x="180" y="300" width="152" height="35" rx="8" fill="#25d1f4" opacity="0.8" />
+  </g>
+</svg>

@@ -20,9 +20,9 @@ const SkillsMatrix: React.FC = () => {
             <div className="flex items-start gap-4">
               <div className="relative w-24 h-24 border-2 border-primary/30 p-1 overflow-hidden">
                 <img
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuC9-W2vcGqH6LB2W2FgpbUMTlYn510NIRby7tVRuMQfA5t9a8KSua7WHf49HilWUvbVPrZ1xCX5kXmzcwbN2NRj-RHqW8PIQ_JPJEqE7L7LZGlM0pXW63wQ00pRh5oADNe7ycISJ3uXlNrllNvpybZm3t18U_o-Eq7afWo9hG7uVQffnWKiAH2ecuuSGRvEu3zT5VCz8B0VLFBQifkH73uNgaHHTwCpK8Sh4Bc8kAmVR7iR-u1hYJN8h5punBldeM9NzKSzH33jsN0"
-                  alt="Avatar"
-                  className="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
+                  src="/profile.png"
+                  alt="Ahsan Zahoor"
+                  className="w-full h-full object-cover object-top grayscale group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                 />
                 <div className="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"></div>
                 <div className="absolute -bottom-2 -right-2 bg-emerald-500 w-5 h-5 rounded-sm flex items-center justify-center border border-background-dark z-20">
