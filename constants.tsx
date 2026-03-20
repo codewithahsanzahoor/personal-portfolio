@@ -45,7 +45,7 @@ export const PROJECTS: Project[] = [
   },
   {
     id: "004-PER",
-    title: "NEXUS E-COMMERCE",
+    title: "E-COMMERCE Store",
     subtitle: "NEXT.JS PLATFORM",
     description:
       "Full-stack e-commerce platform with Admin Dashboard, JWT authentication, and Redux Toolkit state management. Features complete product and order management.",
@@ -55,11 +55,11 @@ export const PROJECTS: Project[] = [
     tech: ["MERN", "JWT", "Stripe"],
     status: "SYSTEM_READY",
     coordinates: "GIT: REPO_01 / BRANCH: MAIN",
-    repoUrl: "https://github.com/codewithahsanzahoor/ecommerce_mern_api_1",
+    repoUrl: "https://github.com/codewithahsanzahoor/nexus-store---future",
   },
   {
     id: "005-PER",
-    title: "SECURE CHAT",
+    title: "CHAT APP",
     subtitle: "REAL-TIME COMM",
     description:
       "Real-time messaging architecture using WebSockets for instant data updates, Cloudinary for media, and Zustand for global state management.",
@@ -69,7 +69,7 @@ export const PROJECTS: Project[] = [
     tech: ["Socket.io", "Cloudinary", "React"],
     status: "ONLINE",
     coordinates: "SOCKET: OPEN / PORT: 8080",
-    repoUrl: "https://github.com/codewithahsanzahoor/chat_app_mern",
+    repoUrl: "https://github.com/codewithahsanzahoor/nexus-chat",
   },
 ];
 
