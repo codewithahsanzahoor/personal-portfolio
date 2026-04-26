@@ -46,7 +46,7 @@ const SkillsMatrix: React.FC = () => {
           </div>
 
           <p className="text-slate-400 leading-relaxed text-sm">
-            Initializing biographical data... Associate Full Stack Developer at{" "}
+            Initializing biographical data... Full Stack Developer at{" "}
             <span className="text-white">Preesoft</span>. Creating scalable
             enterprise applications.{" "}
             <span className="text-primary font-bold">2+ years</span> of

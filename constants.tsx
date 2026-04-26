@@ -71,6 +71,62 @@ export const PROJECTS: Project[] = [
     coordinates: "SOCKET: OPEN / PORT: 8080",
     repoUrl: "https://github.com/codewithahsanzahoor/nexus-chat",
   },
+  {
+    id: "006-PRO",
+    title: "GYM MANAGEMENT SYSTEM",
+    subtitle: "FULL STACK MERN",
+    description:
+      "A comprehensive solution for fitness centers featuring member management, subscription tracking, and attendance monitoring with a secure dashboard.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?q=80&w=2070&auto=format&fit=crop",
+    tags: ["MERN", "DASHBOARD", "MANAGEMENT"],
+    tech: ["React", "Node.js", "Express", "MongoDB"],
+    status: "ACTIVE",
+    coordinates: "SEC: GYM / GRID: 12",
+    repoUrl: "https://github.com/codewithahsanzahoor/gym_management_system",
+  },
+  {
+    id: "007-MOB",
+    title: "FASHION E-COMMERCE",
+    subtitle: "REACT NATIVE MOBILE",
+    description:
+      "Sleek mobile shopping experience with real-time product updates, category filtering, and seamless checkout flow for cross-platform performance.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1483985988355-763728e1935b?q=80&w=2070&auto=format&fit=crop",
+    tags: ["MOBILE", "REACT NATIVE", "ECOMMERCE"],
+    tech: ["React Native", "Node.js", "Redux"],
+    status: "SYSTEM_READY",
+    coordinates: "OS: ANDROID_IOS / LAYER: APP",
+    repoUrl: "https://github.com/codewithahsanzahoor/fashion_ecommerce_app_reactNativeCli",
+  },
+  {
+    id: "008-PRO",
+    title: "NEXUS BOOK STORE",
+    subtitle: "FULL STACK MERN",
+    description:
+      "Dedicated platform for book lovers featuring library management, search functionality, and secure user authentication for high-performance retrieval.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1495446815901-a7297e633e8d?q=80&w=2070&auto=format&fit=crop",
+    tags: ["MERN", "LIBRARY", "WEB APP"],
+    tech: ["MongoDB", "Express", "React", "Node.js"],
+    status: "LIVE",
+    coordinates: "SEC: LIBRARY / POS: DB",
+    repoUrl: "https://github.com/codewithahsanzahoor/book_store_mern",
+  },
+  {
+    id: "009-PRO",
+    title: "E-COMMERCE ECOSYSTEM",
+    subtitle: "FULL STACK PLATFORM",
+    description:
+      "Complete e-commerce ecosystem with advanced product filtering, order management, and secure payment integration with an admin dashboard.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1441986300917-64674bd600d8?q=80&w=2070&auto=format&fit=crop",
+    tags: ["MERN", "E-COMMERCE", "ADMIN"],
+    tech: ["MongoDB", "Express", "React", "Stripe"],
+    status: "SYSTEM_READY",
+    coordinates: "SEC: STORE / GRID: 05",
+    repoUrl: "https://github.com/codewithahsanzahoor/ecommerce_mern",
+  },
 ];
 
 export const SKILLS: Skill[] = [
