@@ -46,10 +46,8 @@ const SkillsMatrix: React.FC = () => {
           </div>
 
           <p className="text-slate-400 leading-relaxed text-sm">
-            Initializing biographical data... Full Stack Developer at{" "}
-            <span className="text-white">Preesoft</span>. Creating scalable
-            enterprise applications.{" "}
-            <span className="text-primary font-bold">1 year</span> of
+            Creating scalable enterprise applications.{" "}
+            <span className="text-primary font-bold">4 years</span> of
             experience in engineering high-performance web ecosystems,
             specializing in the <span className="text-white">MERN stack</span>{" "}
             and <span className="text-white">Real-time</span> architectures.
@@ -57,7 +55,7 @@ const SkillsMatrix: React.FC = () => {
 
           <div className="grid grid-cols-3 gap-4">
             {[
-              { label: "XP_LEVEL", val: "01" },
+              { label: "XP_LEVEL", val: "04" },
               { label: "UPTIME", val: "100%" },
               { label: "REGION", val: "PK" },
             ].map((stat, i) => (
