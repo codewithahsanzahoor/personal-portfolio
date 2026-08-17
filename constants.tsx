@@ -2,15 +2,35 @@ import { Project, Skill } from "./types";
 
 export const PROJECTS: Project[] = [
   {
+    id: "000-CUR",
+    title: "METRIVA",
+    subtitle: "FULL STACK DEV @ ELEVORIX SOLUTIONS",
+    description:
+      "Current role: full-stack web application with complete authentication & user-management system. Auth flows (Login, Register, OTP email verification, Forgot/Reset Password) using Next.js App Router, React 19, Tailwind CSS v4 & TanStack React Query. Secure REST APIs with Node.js, Express & MongoDB — JWT access/refresh tokens in HttpOnly cookies, bcrypt hashing, hashed single-use OTP/reset tokens, Zod validation & Nodemailer. Silent token refresh with request queuing and Protected/Guest route guards.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
+    tags: ["NEXT.JS", "NODE.JS", "AUTH SYSTEMS"],
+    tech: [
+      "React 19",
+      "Tailwind v4",
+      "TanStack Query",
+      "MongoDB",
+      "Zod",
+      "Nodemailer",
+    ],
+    status: "IN DEVELOPMENT",
+    coordinates: "SEC: ELEVORIX / STATUS: CURRENT",
+  },
+  {
     id: "001-PRO",
     title: "COGNIFY ENTERPRISE",
     subtitle: "FULL STACK DEVELOPER",
     description:
-      "Spearheaded the development of real-time enterprise applications using React.js and Node.js. Integrated complex frontend logic with secure backend APIs to ensure scalability.",
+      "Multi-tenant AI-powered LMS with role-based dashboards for Admins, Teachers, Students & Parents. Built in a team of 20+ using React, TypeScript, Node.js, Express, MongoDB & microservices; JWT auth, Stripe subscriptions, AWS S3, RBAC; Figma-to-code with Tailwind, SCSS, Shadcn UI & Material UI; AI-powered Exam Builder & monetization modules.",
     imageUrl:
       "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
-    tags: ["REACT", "NODE.JS", "FULL STACK"],
-    tech: ["Express", "MongoDB", "Redux"],
+    tags: ["REACT", "NODE.JS", "MICROSERVICES"],
+    tech: ["TypeScript", "Stripe", "AWS S3"],
     status: "DEPLOYED",
     coordinates: "SEC: ENTERPRISE / LEVEL: MAX",
     demoUrl: "https://cognify.education/",
@@ -20,11 +40,11 @@ export const PROJECTS: Project[] = [
     title: "BOOKIFY SYSTEM",
     subtitle: "FULL STACK ARCHITECT",
     description:
-      "Engineered robust backend architecture with optimized RESTful APIs while managing full-stack integration for efficient data retrieval and schema management.",
+      "Multi-tenant SaaS Billing & Organization Management system. Backend with Node.js, TypeScript, Express, Prisma ORM, MySQL & Inversify DI; dashboards with React 19, Vite, Material UI v7 & SWR; JWT, RBAC, route guards & type-safe validation (React Hook Form + Zod). Built in a 2-developer backend team.",
     imageUrl:
       "https://images.unsplash.com/photo-1555099962-4199c345e5dd?q=80&w=2070&auto=format&fit=crop",
-    tags: ["NODE.JS", "API DESIGN", "FULL STACK"],
-    tech: ["REST API", "Database Design", "Security"],
+    tags: ["NODE.JS", "PRISMA", "MYSQL"],
+    tech: ["TypeScript", "Inversify", "SWR"],
     status: "ACTIVE",
     coordinates: "SEC: BACKEND / GRID: 09",
     demoUrl: "http://bvh.preesoft.net/",
@@ -32,12 +52,12 @@ export const PROJECTS: Project[] = [
   {
     id: "003-PRO",
     title: "TALENT BRIDGE",
-    subtitle: "FULL STACK ENGINEER",
+    subtitle: "FRONTEND DEVELOPER",
     description:
-      "Built dynamic and responsive user interfaces with a focus on component reusability and intuitive UX, ensuring seamless backend connectivity.",
+      "Multi-tenant Job Board & LMS (frontend-only role). Next.js App Router, React 19, TypeScript, Redux Toolkit & Tailwind CSS; JWT silent token refresh via Axios interceptors with request queuing; AuthGuard, GuestGuard, RoleBasedGuard & granular permissions. Team of 10.",
     imageUrl:
       "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop",
-    tags: ["REACT", "UX/UI", "FULL STACK"],
+    tags: ["NEXT.JS", "REDUX TOOLKIT", "TYPESCRIPT"],
     tech: ["Tailwind", "React Query", "Figma"],
     status: "LIVE",
     coordinates: "POS: FRONTEND / LAYER: UI",
@@ -97,7 +117,8 @@ export const PROJECTS: Project[] = [
     tech: ["React Native", "Node.js", "Redux"],
     status: "SYSTEM_READY",
     coordinates: "OS: ANDROID_IOS / LAYER: APP",
-    repoUrl: "https://github.com/codewithahsanzahoor/fashion_ecommerce_app_reactNativeCli",
+    repoUrl:
+      "https://github.com/codewithahsanzahoor/fashion_ecommerce_app_reactNativeCli",
   },
   {
     id: "008-PRO",
@@ -127,103 +148,150 @@ export const PROJECTS: Project[] = [
     coordinates: "SEC: STORE / GRID: 05",
     repoUrl: "https://github.com/codewithahsanzahoor/ecommerce_mern",
   },
+  {
+    id: "010-FYP",
+    title: "MEDICAL OCR SYSTEM",
+    subtitle: "FINAL YEAR PROJECT",
+    description:
+      "Medical Document OCR & Text Extraction System. Pipeline: PDF → Images → Preprocessing → OCR → Regex Parsing → Structured JSON. FastAPI, Streamlit, OpenCV, Tesseract OCR, pytesseract & Regex; adaptive thresholding for noisy scans; handwritten OCR; Hugging Face translation/summarization; medicine information lookup.",
+    imageUrl:
+      "https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?q=80&w=2070&auto=format&fit=crop",
+    tags: ["PYTHON", "FASTAPI", "OCR"],
+    tech: ["OpenCV", "Tesseract", "Streamlit"],
+    status: "COMPLETED",
+    coordinates: "SEC: ACADEMIC / TYPE: FYP",
+    repoUrl: "https://github.com/codewithahsanzahoor/fyp_ocr_medicen_detail",
+  },
 ];
 
 export const SKILLS: Skill[] = [
   // FRONTEND
   {
-    name: "React / Next.js",
+    name: "React / Next.js + Tailwind",
     proficiency: 95,
     icon: "code",
     module: "FE_CORE",
     category: "FRONTEND",
   },
   {
+    name: "JavaScript",
+    proficiency: 92,
+    icon: "code",
+    module: "FE_JS",
+    category: "FRONTEND",
+  },
+  {
     name: "TypeScript",
-    proficiency: 90,
+    proficiency: 80,
     icon: "integration_instructions",
     module: "FE_LANG",
     category: "FRONTEND",
   },
   {
-    name: "Redux / Zustand",
-    proficiency: 92,
+    name: "Redux Toolkit / Zustand",
+    proficiency: 85,
     icon: "settings_system_daydream",
     module: "FE_STATE",
     category: "FRONTEND",
   },
   {
-    name: "Tailwind / Bootstrap",
+    name: "HTML5 / CSS3 / SCSS",
     proficiency: 95,
-    icon: "style",
-    module: "FE_UI",
+    icon: "html",
+    module: "FE_BASE",
     category: "FRONTEND",
   },
   {
-    name: "MaterialUI / Shadcn",
-    proficiency: 88,
+    name: "Material UI / Shadcn",
+    proficiency: 85,
     icon: "widgets",
     module: "FE_LIB",
     category: "FRONTEND",
   },
   {
-    name: "HTML5 / CSS3",
-    proficiency: 98,
-    icon: "html",
-    module: "FE_BASE",
+    name: "TanStack Query / SWR",
+    proficiency: 80,
+    icon: "sync",
+    module: "FE_DATA",
+    category: "FRONTEND",
+  },
+  {
+    name: "React Native CLI",
+    proficiency: 60,
+    icon: "phone_iphone",
+    module: "FE_MOBILE",
     category: "FRONTEND",
   },
 
   // BACKEND
   {
-    name: "Node.js / Express",
-    proficiency: 90,
+    name: "Node.js / Express / MongoDB",
+    proficiency: 92,
     icon: "dns",
     module: "BE_JS",
     category: "BACKEND",
   },
   {
-    name: "Python / Django / Flask",
-    proficiency: 85,
-    icon: "psychology",
+    name: "Python / FastAPI / Django",
+    proficiency: 75,
+    icon: "terminal",
     module: "BE_PY",
     category: "BACKEND",
   },
   {
-    name: "PHP / Laravel",
-    proficiency: 80,
+    name: "PHP / MySQL",
+    proficiency: 55,
     icon: "php",
     module: "BE_PHP",
     category: "BACKEND",
   },
   {
-    name: "MongoDB / Firebase",
-    proficiency: 92,
-    icon: "storage",
-    module: "BE_NOSQL",
+    name: "NestJS / Prisma / Inversify",
+    proficiency: 60,
+    icon: "account_tree",
+    module: "BE_NEST",
     category: "BACKEND",
   },
   {
-    name: "MySQL / PostgreSQL",
-    proficiency: 85,
+    name: "MySQL / PostgreSQL / Prisma",
+    proficiency: 60,
     icon: "table_chart",
     module: "BE_SQL",
     category: "BACKEND",
   },
-
-  // TOOLS (Optional - can be moved to Backend if preferred, but usually separate)
   {
-    name: "Docker / DevOps",
+    name: "ServiceNow (Portal, Flow Designer)",
+    proficiency: 78,
+    icon: "work",
+    module: "BE_SERVICENOW",
+    category: "BACKEND",
+  },
+  {
+    name: "WebSockets / REST APIs",
+    proficiency: 85,
+    icon: "http",
+    module: "BE_API",
+    category: "BACKEND",
+  },
+  {
+    name: "Docker / Linux / DevOps",
     proficiency: 75,
     icon: "cloud_queue",
     module: "OPS_CONT",
-    category: "BACKEND", // Kept in Backend as per request to split into Front/Back
+    category: "BACKEND",
   },
   {
     name: "Git / GitHub",
-    proficiency: 95,
+    proficiency: 92,
     icon: "commit",
     module: "OPS_VCS",
-    category: "BACKEND", // Kept in Backend
+    category: "BACKEND",
+  },
+  {
+    name: "AI Tools (Cursor, Gemini CLI, Copilot, Qwen)",
+    proficiency: 80,
+    icon: "auto_awesome",
+    module: "OPS_AI",
+    category: "BACKEND",
   },
 ];

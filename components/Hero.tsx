@@ -29,19 +29,17 @@ const Hero: React.FC = () => {
         </div>
 
         <h1 className="text-6xl md:text-8xl font-bold tracking-tighter leading-none mb-8 hover:animate-glitch transition-all cursor-default select-none">
-          Ahsan <span className="text-primary hologram-glow">Zahoor</span>{" "}
-          <br />
-          <span className="text-primary hologram-glow">Full Stack Web</span> ,
-          Mobile Developer <br /> &{" "}
-          <span className="text-accent-purple purple-glow">
-            DevOps Engineer
-          </span>
+          Ahsan <span className="text-primary hologram-glow">Zahoor</span> —
+          Software Engineer,{" "}
+          <span className="text-primary hologram-glow">Full Stack Web</span> &
+          Mobile Developer
         </h1>
 
         <p className="text-slate-400 text-lg md:text-xl max-w-3xl mx-auto mb-12 font-light tracking-wide animate-pulse [animation-duration:4s]">
-          Specializing in MERN Stack, Next.js, and scaling Real-time
-          Applications. Bridge the gap between complex backend logic and
-          seamless frontend experiences.
+          Software Engineer specializing in MERN Stack, Next.js, TypeScript and
+          Real-time Applications. 3.5+ years across Elevorix Solutions
+          (current), Preesoft, Rizviz and freelance — bridging complex backend
+          logic with seamless frontend experiences.
         </p>
 
         <div className="flex flex-col md:flex-row items-center justify-center gap-6">
@@ -55,11 +53,10 @@ const Hero: React.FC = () => {
             </span>
           </a>
           <a
-            href="/cv.pdf"
-            download="Ahsan_Zahoor_CV.pdf"
+            href="#contact"
             className="w-full md:w-auto px-10 py-4 border border-primary/40 text-slate-100 font-bold uppercase tracking-widest hover:bg-primary/10 transition-all rounded-sm group relative overflow-hidden flex items-center justify-center text-center"
           >
-            <span className="relative z-10">Download CV</span>
+            <span className="relative z-10">CV ON REQUEST</span>
             <div className="absolute inset-0 bg-primary/5 translate-y-full group-hover:translate-y-0 transition-transform duration-300"></div>
           </a>
         </div>

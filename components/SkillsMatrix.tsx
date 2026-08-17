@@ -47,7 +47,7 @@ const SkillsMatrix: React.FC = () => {
 
           <p className="text-slate-400 leading-relaxed text-sm">
             Creating scalable enterprise applications.{" "}
-            <span className="text-primary font-bold">4 years</span> of
+            <span className="text-primary font-bold">3.5+ years</span> of
             experience in engineering high-performance web ecosystems,
             specializing in the <span className="text-white">MERN stack</span>{" "}
             and <span className="text-white">Real-time</span> architectures.
@@ -83,8 +83,8 @@ const SkillsMatrix: React.FC = () => {
             <div className="space-y-2">
               {[
                 { n: "MERN Stack Architecture", l: "Advanced" },
-                { n: "Real-time Systems", l: "Expert" },
-                { n: "Secure API Design", l: "Intermediate+" },
+                { n: "Multi-tenant SaaS & Auth Systems", l: "Advanced" },
+                { n: "ServiceNow Development", l: "Intermediate" },
               ].map((comp, i) => (
                 <div
                   key={i}
